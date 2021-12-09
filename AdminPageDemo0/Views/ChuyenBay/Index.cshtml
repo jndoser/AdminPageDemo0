@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AdminPageDemo0.Models.ChuyenBay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="card-title">Các chuyến bay</h4>
+            </div>
+            <div class="col-sm-6">
+                <a href="@Request.Url.Scheme://@Request.Url.Host/ChuyenBay/Create"
+                   style="float:right"
+                   class="btn btn-primary btn-icon-text">
+                <i class="ti-plus btn-icon-prepend"></i> 
+                <span>Thêm chuyến bay</span></a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã chuyến bay</th>
+                        <th>Điểm đi</th>
+                        <th>Điểm đến</th>
+                        <th>Thời gian đi</th>
+                        <th>Thời gian đến</th>
+                        <th>Mã máy bay</th>
+                        <th>Giá vé</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.MaChuyenBay)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DiemDi)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DiemDen)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ThoiGianDi)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ThoiGianDen)</td>
+                            <td>@Html.DisplayFor(modelItem => item.MaMayBay)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Gia)</td>
+                            <td>
+                                <a href="@Request.Url.Scheme://@Request.Url.Host/ChuyenBay/Edit/@item.MaChuyenBay">
+                                    <div type="button" class="btn btn-dark btn-icon-text">
+                                        Edit
+                                        <i class="ti-file btn-icon-append"></i>
+                                    </div>
+                                </a>
+                                <a href="@Request.Url.Scheme://@Request.Url.Host/ChuyenBay/Delete/@item.MaChuyenBay">
+                                    <div type="button" class="btn btn-danger btn-icon-text">
+                                        <i class="ti-close btn-icon-prepend"></i>
+                                        Delete
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

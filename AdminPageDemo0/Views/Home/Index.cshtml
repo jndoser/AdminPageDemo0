@@ -1,0 +1,63 @@
+﻿@model IEnumerable<AdminPageDemo0.Models.ChuyenBay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemDi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiemDen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGianDi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGianDen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaMayBay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemDi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiemDen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiGianDi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThoiGianDen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaMayBay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaChuyenBay }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaChuyenBay }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaChuyenBay })
+        </td>
+    </tr>
+}
+
+</table>
